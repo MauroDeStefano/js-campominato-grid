@@ -4,6 +4,7 @@ let numberList = [];
 
 const btn = document.querySelector("#inizia");
 const choice = document.querySelector("#difficolta");
+const cancel = document.querySelector("#cancel");
 
 container.innerHTML = "Seleziona il livello di difficoltà e genera la griglia";
 
@@ -11,26 +12,10 @@ container.innerHTML = "Seleziona il livello di difficoltà e genera la griglia";
 btn.addEventListener("click", function(){
   container.innerHTML = "";
 
-
   alert(choice.value);
 
-  let difficult;
-  if (choice.value == "facile"){
-    difficult = 100;
-    console.log("facile =", difficult);
-    
-  } else if (choice.value == "medio"){
-    difficult = 81;
-    console.log("medio =", difficult);
-    
-  }else if (choice.value == "difficile"){
-    difficult = 49;
-    console.log("difficile =", difficult);
-    
-  }
-
   console.log(choice.value);
-  init(difficult);
+  init(addClassPerDifficult(choice, cancel));
   console.log("difficoltà", difficult);
 
 });
@@ -65,8 +50,30 @@ function createSquare(target){
   square.className = "square";
 
   target.append(square);
+
+  addClassPerDifficult(choice, square);
   
   return square;
 
+}
+
+function addClassPerDifficult(difficult, addClass){
+
+
+  if (difficult.value == "facile"){
+    difficult = 100;
+    addClass.classList.add("easy");
+    console.log("facile =", difficult);
+    
+  } else if (difficult.value == "medio"){
+    difficult = 81;
+    console.log("medio =", difficult);
+    addClass.classList.add("medium");
+  }else if (difficult.value == "difficile"){
+    difficult = 49;
+    console.log("difficile =", difficult);
+    addClass.classList.add("hard");
+  }
+  return difficult;
 }
 

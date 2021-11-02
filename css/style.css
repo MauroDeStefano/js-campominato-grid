@@ -22,14 +22,14 @@ footer{
 .main-div{
   display: flex;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 180px);
   justify-content: center;
   align-items: center;
 }
 
 .mds-container{
-  width: 800px;
-  height: 800px;
+  width: 500px;
+  height: 500px;
 }
 
 .square{
@@ -59,3 +59,4 @@ footer{
 .active{
   background-color: turquoise;
 }
+
